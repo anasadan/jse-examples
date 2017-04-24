@@ -64,7 +64,7 @@ import java.util.*;
  */
 public class CodeChallenge {
 
-    public static void main(String...args) {git
+    public static void main(String...args) {
 
         like(5, Arrays.asList("1M3G5G", "2G3M4G", "5M"));
         like(1, Arrays.asList("1G", "1M"));
