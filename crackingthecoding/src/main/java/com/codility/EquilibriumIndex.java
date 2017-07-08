@@ -62,26 +62,23 @@ public class EquilibriumIndex {
     }
 
     public int solution(int[] A) {
+        int start = 0;
+        int end = a.length-1;
+        int sumLeft =0;
+        int sumRight =0;
+        
+        if(a.length%2!=0)
+            return -1;
 
-        sum = sum.add(sumOfAll(A));
-        for (int i = 0; i < A.length; i++) {
-            //used for sub from sumOfAll to get leftSum and rightSum
-            sub = sub.add(BigInteger.valueOf(A[i]));
-
-            leftSum = sub.subtract(BigInteger.valueOf(A[i]));
-            rightSum = sum.subtract(sub);
-            if (leftSum.equals(rightSum)) {
-                return i;
-            }
+        while (start != end){
+            sumLeft+= a[start];
+            sumRight+= a[end];
+            start++;
+            end--;
         }
-        return -1;
-    }
-
-    public static BigInteger sumOfAll(int[] a) {
-        BigInteger sum = BigInteger.ZERO;
-        for (int i = 0; i < a.length; i++) {
-            sum = sum.add(BigInteger.valueOf(a[i]));
-        }
-        return sum;
-    }
+        
+        if(sumLeft != sumRight)
+            return -1;
+         return a[start];   
+    
 }
